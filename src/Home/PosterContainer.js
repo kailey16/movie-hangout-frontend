@@ -1,12 +1,11 @@
 import React from 'react';
 import Poster from '../components/Poster'
 
-const PosterContainer = () => {
+const PosterContainer = (props) => {
 
     return (
       <div className="PosterContainer">
-        PosterContainer
-        <Poster />
+        {props.allMovies.slice(0,6).map(movie => <Poster movie={movie} />)}
       </div>
     )
 

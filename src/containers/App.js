@@ -28,7 +28,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Route exact path="/" component={Home}/>
+          <Route exact path="/" render={() => <Home allMovies={this.state.allMovies} />} />
           <Route exact path="/movies" component={MovieSearch}/>
           <Route exact path="/movies/:id" render={(props) => {
             let id = props.match.params.id

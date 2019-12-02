@@ -1,0 +1,17 @@
+.Home {
+  color: yellow;
+  text-align: center;
+}
+
+.PosterContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 10px;
+}
+
+.posterImg {
+  width: 150px;
+  height: auto;
+  display: inline-block;
+}

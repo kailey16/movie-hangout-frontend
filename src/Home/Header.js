@@ -1,11 +1,16 @@
 import React from 'react';
+import '../style/header.css'
 
 const Header = () => {
 
     return (
       <div className="Header">
-        <div id="wrapper"></div>
-        <h1>Movie Hangout</h1>
+        <div id="wrapper">
+          <div className="future-cop">
+          <h3 className="future">Movie</h3>
+          <h1 className="cop">HANGOUT</h1>
+          </div>
+        </div>
       </div>
     )
     
