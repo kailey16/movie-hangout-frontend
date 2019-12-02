@@ -3,15 +3,27 @@
   text-align: center;
 }
 
-.PosterContainer {
+.posters {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   grid-gap: 10px;
+  z-index: 1;
+  position: absolute;
+  top: 400px;
 }
 
 .posterImg {
-  width: 150px;
+  width: 155px;
   height: auto;
   display: inline-block;
+}
+
+#video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  z-index: -1;
 }
