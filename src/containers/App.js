@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Home from '../Home/Home'
-import Navbar from '../components/Navbar'
 import MovieSearch from '../MoviesSearch/MovieSearch'
 import LoginPage from '../LoginSignup/LoginPage'
 import Profile from '../Profile/Profile'
@@ -29,7 +28,6 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Navbar />
           <Route exact path="/" component={Home}/>
           <Route exact path="/movies" component={MovieSearch}/>
           <Route exact path="/movies/:id" render={(props) => {
