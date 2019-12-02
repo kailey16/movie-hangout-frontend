@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const NewCommentForm = () => {
 
     return (
       <div className="NewCommentForm">
-        NewCommentForm
+        <form>
+          <input type="text" placeholder="Content...">Content</input>
+          <input type="number">Rating</input>
+        </form>
       </div>
     )
 

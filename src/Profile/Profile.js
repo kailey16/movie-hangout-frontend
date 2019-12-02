@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import UserContainer from './UserContainer'
+import MymoviesContainer from './MymoviesContainer'
+import CommentRating from '../components/CommentRating'
 
 class Profile extends Component {
 
@@ -6,6 +9,9 @@ class Profile extends Component {
     return (
       <div className="Profile">
         Profile
+        <UserContainer />
+        <MymoviesContainer />
+        <CommentRating />
       </div>
     )
   }

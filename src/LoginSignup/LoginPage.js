@@ -1,14 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
+import LoginForm from './LoginForm'
+import SignupForm from './SignupForm'
 
-class LoginPage extends Component {
 
-  render() {
+const LoginPage = () => {
+
     return (
       <div className="LoginPage">
         LoginPage
+        <LoginForm />
+        <SignupForm />
       </div>
     )
-  }
 
 }
 

@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Poster from '../components/Poster'
 
-class PosterContainer extends Component {
+const PosterContainer = () => {
 
-  render() {
     return (
       <div className="PosterContainer">
         PosterContainer
         <Poster />
       </div>
     )
-  }
 
 }
 

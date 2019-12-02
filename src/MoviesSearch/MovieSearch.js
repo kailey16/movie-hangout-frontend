@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import FilterBar from './FilterBar'
+import CardsContainer from './CardsContainer'
 
-class MoviesSearch extends Component {
+class MovieSearch extends Component {
 
   render() {
     return (
-      <div className="MoviesSearch">
-        MoviesSearch
+      <div className="MovieSearch">
+        MovieSearch
+        <FilterBar />
+        <CardsContainer />
       </div>
     )
   }
 
 }
 
-export default MoviesSearch
+export default MovieSearch
