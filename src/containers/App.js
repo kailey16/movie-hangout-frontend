@@ -10,14 +10,18 @@ import Show from '../Show/Show'
 class App extends Component {
 
   state = {
-    movies: [],
-    popularMovies: []
+    popularMovies: [],
+    allMovies: []
   }
 
   componentDidMount() {
     fetch("http://localhost:3001/popular")
     .then(res => res.json())
     .then(popularMovies => this.setState({popularMovies: popularMovies}))
+
+    fetch("http://localhost:3001/movies")
+    .then(res => res.json())
+    .then(allMovies => this.setState({allMovies: allMovies}))
   }
 
   render() {
