@@ -4,7 +4,7 @@ const Header = () => {
 
     return (
       <div className="Header">
-        Header
+        <h1>Movie Hangout</h1>
       </div>
     )
     

@@ -9,10 +9,9 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-        Home
         <Header />
         <PosterContainer />
-        <PopularContainer />
+        <PopularContainer /> 
         <TopRatedContainer />
       </div>
     )

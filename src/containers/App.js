@@ -10,14 +10,18 @@ import Show from '../Show/Show'
 class App extends Component {
 
   state = {
-    movies: []
+    movies: [],
+    popularMovies: []
   }
 
   componentDidMount() {
-    
+    fetch("http://localhost:3001/popular")
+    .then(res => res.json())
+    .then(popularMovies => this.setState({popularMovies: popularMovies}))
   }
 
   render() {
+    console.log("App rendering")
     return (
       <Router>
         <div className="App">
