@@ -55,6 +55,7 @@ class MovieSearch extends Component {
     return (
       <div>
           <Navbar />
+          <br></br><br></br>
         <div className="ui container">
           < FilterBar updateSearch={this.updateSearchText}/>
           < CardsContainer popularMovies={this.state.searchMovies.filter(movie => movie.original_title.toLowerCase().includes(this.state.searchText)).slice(0, 20)}/>
