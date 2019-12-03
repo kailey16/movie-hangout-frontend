@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ShowContainer from './ShowContainer'
 import DetailsContainer from './DetailsContainer'
 import Navbar from '../components/Navbar'
+import '../style/show.css'
 
 class Show extends Component {
 
@@ -19,8 +20,8 @@ class Show extends Component {
     return (
       <div className="Showpage">
         <Navbar />
-        <ShowContainer />
-        <DetailsContainer />
+        <ShowContainer movie={this.state.currentMovie}/>
+        <DetailsContainer movie={this.state.currentMovie}/>
       </div>
     )
   }

@@ -1,11 +1,13 @@
 import React from 'react';
 
-const ShowContainer = () => {
+const ShowContainer = (props) => {
+  let { title, overview, backdrop_path } = props.movie 
+  let background = `https://image.tmdb.org/t/p/original${backdrop_path}`
 
     return (
-      <div className="ShowContainer">
-        <div>Movie Title</div>
-        <div>Movie Overview</div>
+      <div className="ShowContainer" style={{backgroundImage: `url(${background})`}}>
+        <div className="showTitle">{title}</div>
+        <div className="showOverview">{overview}</div>
       </div>
     )
 
