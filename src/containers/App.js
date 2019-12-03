@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3001/popular")
+    fetch("http://localhost:3001/popular/1")
     .then(res => res.json())
     .then(popularMovies => this.setState({popularMovies: popularMovies}))
 
@@ -29,7 +29,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Route exact path="/" render={() => <Home allMovies={this.state.allMovies} />} />
-          <Route exact path="/movies" component={MovieSearch}/>
+          <Route exact path="/movies" render={() => <MovieSearch allMovies={this.state.allMovies}/>}/>
           <Route exact path="/movies/:id" render={(props) => {
             let id = props.match.params.id
             let foundMovie = this.state.movies.find(id)

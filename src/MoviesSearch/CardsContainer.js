@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react'
 import MovieCard from './MovieCard'
 
-const CardsContainer = () => {
+class CardsContainer extends Component{
+  
+
+  render(){
 
     return (
       <div className="CardsContainer">
-        CardsContainer
-        <MovieCard />
+        {this.props.popularMovies.map(movie => {
+          return <MovieCard key={movie.id} movieObject={movie}/>
+        })}
       </div>
     )
-
+  }
 }
 
 export default CardsContainer
