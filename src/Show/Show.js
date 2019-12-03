@@ -5,6 +5,16 @@ import Navbar from '../components/Navbar'
 
 class Show extends Component {
 
+  state = {
+      currentMovie: {}
+  }
+  
+  componentDidMount() {
+    fetch(`http://localhost:3001/movie/${this.props.movieId}`)
+    .then(res => res.json())
+    .then(movie => this.setState({currentMovie: movie}))
+  }
+
   render() {
     return (
       <div className="Showpage">

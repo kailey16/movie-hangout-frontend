@@ -4,10 +4,10 @@ const NewCommentForm = () => {
 
     return (
       <div className="NewCommentForm">
-        <form>
+        {/* <form>
           <input type="text" placeholder="Content...">Content</input>
           <input type="number">Rating</input>
-        </form>
+        </form> */}
       </div>
     )
 

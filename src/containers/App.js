@@ -37,8 +37,7 @@ class App extends Component {
           <Route exact path="/movies" component={MovieSearch}/>
           <Route exact path="/movies/:id" render={(props) => {
             let id = props.match.params.id
-            let foundMovie = this.state.movies.find(id)
-            return <Show movie={foundMovie} />
+            return <Show movieId={id} />
           }} />
           <Route exact path="/login" component={LoginPage}/>
           <Route exact path="/profile" component={Profile}/>
