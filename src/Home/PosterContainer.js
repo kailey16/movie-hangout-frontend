@@ -11,7 +11,7 @@ const PosterContainer = (props) => {
             <source src="https://www.videvo.net/videvo_files/converted/2014_12/preview/097.mp421508.webm" type="video/webm" />
           </video>
         <div className="posters">
-          {props.allMovies.slice(0,7).map(movie => <Poster key={movie.id} movie={movie} />)}
+          {props.allMovies.slice(10,17).map(movie => <Poster classes="posterImg" key={movie.id} movie={movie} />)}
         </div>
       </div>
     )

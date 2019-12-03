@@ -5,7 +5,7 @@ const Poster = (props) => {
   return (
     <div className="Poster">
       {props.movie &&
-       <img className="posterImg" src={"https://image.tmdb.org/t/p/w500" + props.movie["poster_path"]} />
+       <img className={props.classes} src={"https://image.tmdb.org/t/p/w500" + props.movie["poster_path"]} />
       } 
     </div>
   )

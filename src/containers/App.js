@@ -9,8 +9,9 @@ import Show from '../Show/Show'
 class App extends Component {
 
   state = {
+    allMovies: [],
     popularMovies: [],
-    allMovies: []
+    topratedMovies: []
   }
 
   componentDidMount() {
@@ -21,6 +22,10 @@ class App extends Component {
     fetch("http://localhost:3001/movies")
     .then(res => res.json())
     .then(allMovies => this.setState({allMovies: allMovies}))
+
+    fetch("http://localhost:3001/top_rated")
+    .then(res => res.json())
+    .then(topratedMovies => this.setState({topratedMovies: topratedMovies}))
   }
 
   render() {
@@ -28,7 +33,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Route exact path="/" render={() => <Home allMovies={this.state.allMovies} />} />
+          <Route exact path="/" render={() => <Home allMovies={this.state.allMovies} popularMovies={this.state.popularMovies} topratedMovies={this.state.topratedMovies}/>} />
           <Route exact path="/movies" component={MovieSearch}/>
           <Route exact path="/movies/:id" render={(props) => {
             let id = props.match.params.id

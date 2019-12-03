@@ -7,7 +7,7 @@ class Show extends Component {
 
   render() {
     return (
-      <div className="Show">
+      <div className="Showpage">
         <Navbar />
         <ShowContainer />
         <DetailsContainer />

@@ -1,22 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Anton|Bangers|Bungee|Carter+One|Gloria+Hallelujah|Julius+Sans+One|Kaushan+Script|Lobster|Luckiest+Guy|Michroma|Rock+Salt|Special+Elite&display=swap');
+
+  /* font-family: 'Anton', sans-serif; */
+  /* font-family: 'Gloria Hallelujah', cursive; */
+  /* font-family: 'Luckiest Guy', cursive; */
+  /* font-family: 'Bangers', cursive; */
+  /* font-family: 'Special Elite', cursive; */
+  /* font-family: 'Carter One', cursive; */
+  /* font-family: 'Rock Salt', cursive; */
+
 .Home {
-  color: yellow;
   text-align: center;
-}
-
-.posters {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  grid-gap: 10px;
-  z-index: 1;
-  position: absolute;
-  top: 400px;
-}
-
-.posterImg {
-  width: 155px;
-  height: auto;
-  display: inline-block;
 }
 
 #video {
@@ -26,4 +19,67 @@
   width: 100%;
   height: auto;
   z-index: -1;
+}
+
+.homeButtons {
+  /* position: fixed; */
+  /* float: right;
+  margin-right: 50px; */
+}
+
+/* Poster CSS */
+.posters {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 10px;
+  z-index: 1;
+  position: absolute;
+  top: 370px;
+}
+
+.posterImg {
+  width: 155px;
+  height: auto;
+  display: inline-block;
+}
+
+@keyframes glowing {
+  0% { box-shadow: 0 0 -10px #c4a300; }
+  40% { box-shadow: 0 0 20px #c4a300; }
+  60% { box-shadow: 0 0 20px #c4a300; }
+  100% { box-shadow: 0 0 -10px #c4a300; }
+}
+
+.poster-glow {
+  animation: glowing 5000ms infinite;
+}
+
+/* popular & most rated rows */
+.homeRow {
+  position: absolute;
+  width: 100%;
+  padding: 20px 0 20px 0;
+}
+
+.rowContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 10px;
+  margin: 0 50px 0 50px;
+}
+
+.PopularContainer {
+  top: 635px;
+}
+
+.TopRatedContainer {
+  top: 1000px;
+}
+
+.rowTitle {
+  color: #FFDC00;
+  font-size: 35px;
+  font-family: 'Bungee', cursive;
 }
