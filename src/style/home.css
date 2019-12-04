@@ -8,38 +8,36 @@
   /* font-family: 'Carter One', cursive; */
   /* font-family: 'Rock Salt', cursive; */
 
-.Home {
+.header {
   text-align: center;
 }
+
 
 #video {
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 100%;
-  height: auto;
+  width: 100vw;
+  height: 100vh;
   z-index: -1;
 }
 
 .homeButtons {
-  /* position: fixed; */
-  /* float: right;
-  margin-right: 50px; */
+  float: right;
+  padding-right: 3vw;
 }
 
 /* Poster CSS */
 .posters {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  grid-gap: 10px;
+  display: inline-block;
   z-index: 1;
   position: absolute;
-  top: 370px;
+  top: 60vh;
+  text-align: center;
 }
 
 .posterImg {
-  width: 155px;
+  width: 200px;
   height: auto;
   display: inline-block;
 }
@@ -63,19 +61,22 @@
 }
 
 .rowContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  grid-gap: 10px;
-  margin: 0 50px 0 50px;
+  display: inline-block;
+}
+
+.Poster {
+  display: inline-block;
+  padding: 0 20px 0 20px;
 }
 
 .PopularContainer {
-  top: 635px;
+  text-align: center;
+  top: 105vh;
 }
 
 .TopRatedContainer {
-  top: 1000px;
+  text-align: center;
+  top: 160vh;
 }
 
 .rowTitle {

@@ -1,13 +1,14 @@
 .ShowContainer {
   width: 100%;
-  height: 600px;
+  height: 100vh;
+  margin-top: 4vh;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .showTitle {
-  padding: 250px 0 0 130px;
+  padding: 40vh 0 0 130px;
   font-size: 40px;
   text-shadow: 3px 4px 3px black;
 }
@@ -15,7 +16,7 @@
 .showOverview {
   padding: 30px 0 0 130px;
   width: 500px;
-  font-size: 17px;
+  font-size: 20px;
   text-shadow: 3px 4px 3px black;
 }
 

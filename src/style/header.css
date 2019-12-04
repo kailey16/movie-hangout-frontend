@@ -2,19 +2,20 @@
 @import url(https://fonts.googleapis.com/css?family=Monoton);
 
 
+body { background: #000; color: #fff; position: relative;}
+
 .future-cop {
   position: relative;
-  margin-top: 200px;
+  top: 13vh;
+  left: 13vh;
 }
 
 .future {
   position: absolute;
-  left: 0;
-  top: -120px;
+  left: 10vh;
+  top: -10vh;
   font-family: 'Mr Dafoe', cursive;
   font-size: 150px;
-  margin-top: 160px;
-  margin-bottom: 0;
   color: #EB219B;
   -webkit-text-fill-color: rgba(253, 90, 250, 1);
   text-shadow: -2px -2px 0 #FFBAF2;
@@ -22,38 +23,32 @@
   transform: skew(-5deg,-5deg);
   font-weight: normal;
   z-index: 2;
-  margin-left: 60px;
-  padding-left: 50px;
-  padding-right: 70px;
 }
 
 .cop {
   position: relative;
   font-family: 'Monoton', cursive;
-  font-size: 150px;
+  font-size: 170px;
   line-height: 1;
-  margin: 0;
-  margin-top: -95px; 
-  padding-left: 80px;
-  /* font-weight: normal; */
-  background-image: -webkit-linear-gradient(#022486 0%, #0AD0FD 30%, #BDFCFC 40%, #D8FFFF 44%, #00081C 44%, #00081C 50%, #074A67 52%, #1CD8FE 60%, #7FEDFE 62%, #96F5FC 70%, #0FD8FA 73%, #0BD2FD 88%, #AFFDFF 100%); 
-  -webkit-background-clip: text;
+  top: 6vh;
+  background-image: linear-gradient(#022486 0%, #0AD0FD 30%, #BDFCFC 40%, #D8FFFF 44%, #00081C 44%, #00081C 50%, #074A67 52%, #1CD8FE 60%, #7FEDFE 62%, #96F5FC 70%, #0FD8FA 73%, #0BD2FD 88%, #AFFDFF 100%); 
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 1px #fff;
 }
 
-.mac .cop {
+.cop {
   font-weight: 400;
 }
 
 .cop:before {
   position: absolute;
   content: '';
-  left: 260px;
+  left: 51px;
   top: 74px;
   width: 80px;
   height: 3px;
-  background-image: -webkit-radial-gradient(#fff 0%, transparent 85%);
+  background-image: radial-gradient(#fff 0%, transparent 85%);
   z-index: 4;
   animation-name: cop_before_effect;
   animation-duration: 5s;
@@ -65,11 +60,11 @@
 .cop:after {
   position: absolute;
   content: '';
-  left: 300px;
+  left: 90px;
   top: 32px;
   width: 3px;
   height: 80px;
-  background-image: -webkit-radial-gradient(#fff 0%, transparent 85%);
+  background-image: radial-gradient(#fff 0%, transparent 85%);
   z-index: 4;
   animation-name: cop_after_effect;
   animation-duration: 5s;
@@ -78,25 +73,19 @@
   animation-iteration-count: infinite;
 }
 
-@keyframes chrome_effect {
-  0% {background-position:-680px 0;}
-  10% {background-position:420px 0;}
-  100% {background-position:420px 0;}
-}
-
 @keyframes cop_before_effect {
   0% {
-    left: 250px;
+    left: 51px;
     top: 74px;
     opacity: 0;}
   
   15% {
-    left: 250px;
+    left: 51px;
     top: 74px;
     opacity: 1;}
   
   30% {
-    left: 250px;
+    left: 51px;
     top: 74px;
     opacity: 0;}
   
@@ -133,17 +122,17 @@
 
 @keyframes cop_after_effect {
   0% {
-    left: 300px;
+    left: 90px;
     top: 32px;
     opacity: 0;}
   
   15% {
-    left: 300px;
+    left: 90px;
     top: 32px;
     opacity: 1;}
   
   30% {
-    left: 300px;
+    left: 90px;
     top: 32px;
     opacity: 0;}
   
