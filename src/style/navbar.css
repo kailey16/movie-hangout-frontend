@@ -1,0 +1,14 @@
+#navbar {
+  background-color: #FFDC00;
+  font-size: 2vh;
+  font-family: 'Bungee', cursive;
+  color: #121212;
+}
+
+.video.icon {
+  font-size: 3vh;
+}
+
+.movieCards {
+  margin-top: 10vh;
+}

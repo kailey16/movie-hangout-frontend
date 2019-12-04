@@ -1,13 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import '../style/navbar.css'
+import Logo from '../style/logo.png'
 
 const Navbar = () => {  
 
   return (
 
-    <div className="ui top fixed menu">
+    <div id="navbar" className="ui top fixed menu">
       <Link className="item" to="/">
-        <img src="https://www.creativefabrica.com/wp-content/uploads/2018/12/Movie-roll-cinema-entertainment-icon-EPS-10-by-Hoeda80-580x386.jpg" alt="logo"/>
+        {/* <img src={Logo} alt="logo"/> */}
+        <i class="video icon"></i>
       </Link>
       <Link className="item" to="/movies">Movies</Link>
       <Link className="item" to="/profile">Profile</Link>

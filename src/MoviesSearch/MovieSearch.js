@@ -117,9 +117,8 @@ class MovieSearch extends Component {
     console.log(this.state.searchMovies.length)
     return (
       <div>
-          <Navbar />
-          <br></br><br></br>
-        <div className="ui container">
+        <Navbar />
+        <div className="ui container movieCards">
           < FilterBar resetFilters={this.resetFilters}
           updateSearch={this.updateSearchText} updateGenre={this.updateGenre} updateSortBy={this.updateSortBy}/>
           
