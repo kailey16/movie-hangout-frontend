@@ -7,7 +7,7 @@ body { background: #000; color: #fff; position: relative;}
 .future-cop {
   position: relative;
   top: 13vh;
-  left: 13vh;
+  left: 8vw;
 }
 
 .future {
@@ -15,7 +15,7 @@ body { background: #000; color: #fff; position: relative;}
   left: 10vh;
   top: -10vh;
   font-family: 'Mr Dafoe', cursive;
-  font-size: 150px;
+  font-size: 10vw;
   color: #EB219B;
   -webkit-text-fill-color: rgba(253, 90, 250, 1);
   text-shadow: -2px -2px 0 #FFBAF2;
@@ -28,7 +28,7 @@ body { background: #000; color: #fff; position: relative;}
 .cop {
   position: relative;
   font-family: 'Monoton', cursive;
-  font-size: 170px;
+  font-size: 10vw;
   line-height: 1;
   top: 6vh;
   background-image: linear-gradient(#022486 0%, #0AD0FD 30%, #BDFCFC 40%, #D8FFFF 44%, #00081C 44%, #00081C 50%, #074A67 52%, #1CD8FE 60%, #7FEDFE 62%, #96F5FC 70%, #0FD8FA 73%, #0BD2FD 88%, #AFFDFF 100%); 
