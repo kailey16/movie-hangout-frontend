@@ -4,7 +4,7 @@ import DetailsContainer from './DetailsContainer'
 import Navbar from '../components/Navbar'
 import '../style/show.css'
 
-class Show extends Component {
+class Show extends Component { 
 
   state = {
       currentMovie: {}

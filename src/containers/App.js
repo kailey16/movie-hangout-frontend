@@ -26,13 +26,6 @@ class App extends Component {
     fetch("http://localhost:3001/top_rated")
     .then(res => res.json())
     .then(topratedMovies => this.setState({topratedMovies: topratedMovies}))
-
-    // headers
-    if ( navigator.platform.indexOf('Win') != -1 ) {
-      window.document.getElementById("wrapper").setAttribute("class", "windows");
-    } else if ( navigator.platform.indexOf('Mac') != -1 ) {
-      window.document.getElementById("wrapper").setAttribute("class", "mac");
-    }
   }
 
   render() {
