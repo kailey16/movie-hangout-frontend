@@ -7,11 +7,12 @@ import Navbar from '../components/Navbar'
 class Profile extends Component {
 
   render() {
+    console.log(this.props)
     return (
       
       <div className="Profile">
         <br></br><br></br>
-        <Navbar />
+        <Navbar currentUser={this.props.currentUser} signOut={this.props.signOut}/>
         <UserContainer />
         <MymoviesContainer />
         <CommentRating />

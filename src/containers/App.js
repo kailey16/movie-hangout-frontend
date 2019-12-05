@@ -46,6 +46,27 @@ class App extends Component {
   loggingIn = (event, userInfo) => {
     event.preventDefault()
     console.log(userInfo)
+    fetch('http://localhost:3001/api/v1/login', {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }, 
+      body: JSON.stringify({
+      user: {
+          username: userInfo.username,
+          password: userInfo.password
+        }
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      localStorage.setItem("jwt", data.jwt)
+      this.setState({currentUser: data.user})
+    })
+
+
   }
 
   signUp = (event, userInfo) => {
@@ -75,19 +96,27 @@ class App extends Component {
       localStorage.setItem("jwt", data.jwt)
       this.setState({currentUser: data.user})
     })
+  }
 
+  signOut = () => {
+    localStorage.removeItem('jwt')
+    this.setState({currentUser: []})
   }
 
   render() {
     return (
       <Router>
         <div className="App">
-          <Route exact path="/" render={() => <Home allMovies={this.state.allMovies} popularMovies={this.state.popularMovies} topratedMovies={this.state.topratedMovies}/>} />
-          <Route exact path="/movies" render={() => <MovieSearch allMovies={this.state.allMovies}/>}/>
+          <Route exact path="/" render={() => <Home allMovies={this.state.allMovies} popularMovies={this.state.popularMovies} topratedMovies={this.state.topratedMovies} currentUser={this.state.currentUser}
+          signOut={this.signOut}/>} />
+
+          <Route exact path="/movies" render={() => <MovieSearch allMovies={this.state.allMovies} currentUser={this.state.currentUser} signOut={this.signOut} />}/>
+
           <Route exact path="/movies/:id" render={(props) => {
             let id = props.match.params.id
-            return <Show movieId={id} />
+            return <Show movieId={id} currentUser={this.state.currentUser} signOut={this.signOut} />
           }} />
+
           <Route exact path="/login" render={() => {
           
           return this.state.currentUser.length === 0 ? <LoginPage currentUser={this.state.currentUser} loggingIn={this.loggingIn}
@@ -95,7 +124,13 @@ class App extends Component {
           
           }}/>
 
-          <Route exact path="/profile" component={Profile}/>
+          <Route exact path="/profile" render={() => {
+          return this.state.currentUser.length === 0 ? <Redirect to="/login"/> :
+          < Profile currentUser={this.state.currentUser} 
+          signOut={this.signOut}/> 
+          
+          }}/>
+          
         </div>
       </Router>
     )

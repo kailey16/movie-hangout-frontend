@@ -128,7 +128,7 @@ class MovieSearch extends Component {
     
     return (
       <div>
-        <Navbar />
+        <Navbar currentUser={this.props.currentUser} signOut={this.props.signOut}/>
         <div className="ui container movieCards">
           < FilterBar resetFilters={this.resetFilters}
           updateSearch={this.updateSearchText} updateGenre={this.updateGenre} updateSortBy={this.updateSortBy}/>

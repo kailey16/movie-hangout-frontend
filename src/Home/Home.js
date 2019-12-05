@@ -9,11 +9,13 @@ import '../style/home.css'
 class Home extends Component {
 
   render() {
+    console.log(this.props)
     return (
       <div className="Home">
         <div className="homeButtons">
           <Link className="item ui inverted yellow button" to="/movies">Movies</Link>
-          <Link className="item ui inverted yellow button" to="/login">Login</Link>
+          {!Array.isArray(this.props.currentUser) ? <Link className="item ui inverted yellow button" to="/profile">Profile</Link> : <Link className="item ui inverted yellow button" to="/login">Login</Link>}
+          
         </div>
         <Header />
         <PosterContainer allMovies={this.props.allMovies}/>

@@ -9,10 +9,10 @@ class LoginPage extends React.Component {
     super();
 
     this.state = {
-      signUp: true
+      signUp: false
     }
   }
-
+  
   switchForm = () => {
     let currentState = this.state.signUp
     this.setState({signUp: !currentState})
@@ -22,7 +22,7 @@ class LoginPage extends React.Component {
     return (
       <div className="loginPage">
         <div className="login-page-navbar">
-          <Navbar />
+          <Navbar currentUser={this.props.currentUser}/>
         </div>
        
         <div className="login-signup-container">
