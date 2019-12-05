@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import Home from '../Home/Home'
 import MovieSearch from '../MoviesSearch/MovieSearch'
 import LoginPage from '../LoginSignup/LoginPage'
@@ -11,7 +11,8 @@ class App extends Component {
   state = {
     allMovies: [],
     popularMovies: [],
-    topratedMovies: []
+    topratedMovies: [],
+    currentUser: []
   }
 
   componentDidMount() {
@@ -26,10 +27,58 @@ class App extends Component {
     fetch("http://localhost:3001/top_rated")
     .then(res => res.json())
     .then(topratedMovies => this.setState({topratedMovies: topratedMovies}))
+
+    if(localStorage.getItem('jwt')){
+      fetch('http://localhost:3001/api/v1/profile', {
+        headers: {
+          "Authorization" : `Bearer ${localStorage.getItem('jwt')}`
+        }
+      })
+      .then(res => res.json())
+      .then(user => {
+        console.log(user)
+        this.setState({currentUser: user})
+      })
+
+    }
+  }
+
+  loggingIn = (event, userInfo) => {
+    event.preventDefault()
+    console.log(userInfo)
+  }
+
+  signUp = (event, userInfo) => {
+    event.preventDefault();
+    console.log("signing up", userInfo)
+
+    fetch('http://localhost:3001/api/v1/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+      user: {
+        username: userInfo.username,
+        password: userInfo.password,
+        bio: userInfo.bio,
+        avatar: userInfo.avatar,
+        location: userInfo.location,
+        favortie_genre: userInfo.genre
+        }
+      })
+    })
+    .then(r => r.json())
+    .then(data => {
+      console.log(data)
+      localStorage.setItem("jwt", data.jwt)
+      this.setState({currentUser: data.user})
+    })
+
   }
 
   render() {
-    console.log("App rendering")
     return (
       <Router>
         <div className="App">
@@ -39,7 +88,13 @@ class App extends Component {
             let id = props.match.params.id
             return <Show movieId={id} />
           }} />
-          <Route exact path="/login" component={LoginPage}/>
+          <Route exact path="/login" render={() => {
+          
+          return this.state.currentUser.length === 0 ? <LoginPage currentUser={this.state.currentUser} loggingIn={this.loggingIn}
+          signUp={this.signUp} /> : <Redirect to="/profile"/>
+          
+          }}/>
+
           <Route exact path="/profile" component={Profile}/>
         </div>
       </Router>

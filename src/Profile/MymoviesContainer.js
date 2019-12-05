@@ -1,12 +1,13 @@
 import React from 'react';
-import Poster from '../components/Poster'
+// import Poster from '../components/Poster'
 
 const MyMoviesContainer = () => {
 
     return (
       <div className="MyMoviesContainer">
         MyMoviesContainer
-        <Poster />
+        {/* poster componenet has been giving errors */}
+        {/* <Poster /> */} 
       </div>
     )
 
