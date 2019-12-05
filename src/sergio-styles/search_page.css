@@ -68,6 +68,10 @@
   color: white;
 }
 
+.movie-card-links a {
+    color: white;
+}
+
 .movie-card-details {
     display: grid;
     grid-template-columns: 1fr 1fr;

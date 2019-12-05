@@ -104,17 +104,28 @@ class MovieSearch extends Component {
   }
 
   resetFilters = (event) => {
-    if (this.state.genre === "" && this.state.sortBy === ""){
+    if (this.state.genre === "" && this.state.sortBy === "" & this.state.searchText === ""){
       console.log("no filters to reset")
     } else {
-      console.log('trying to reset the filters', event.target) //if it hits this block then filters in the state
-                                                              //need to be cleared and the dropdowns need be set to default
+      //resetting the genre drop down... bad practice/ needs refactor
+      event.target.parentElement.parentElement.children[1].children[1].value = ""
+
+      //resetting the sort by drop down.. bad practice/ needs refactor
+      event.target.parentElement.parentElement.children[2].children[1].value = ""
+
+      //resetting the search text
+      event.target.parentElement.parentElement.children[0].children[1].value = ""
+      
+      //updating the state to original. Update genre, sort by and search text
+      this.setState({searchText: "", genre: "", sortBy: ""})
+
+      this.getMovies(this.state.page)
     }
   }
 
 
   render() {
-    console.log(this.state.searchMovies.length)
+    
     return (
       <div>
           <Navbar />

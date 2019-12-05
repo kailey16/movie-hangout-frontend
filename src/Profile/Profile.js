@@ -8,7 +8,9 @@ class Profile extends Component {
 
   render() {
     return (
+      
       <div className="Profile">
+        <br></br><br></br>
         <Navbar />
         <UserContainer />
         <MymoviesContainer />

@@ -1,8 +1,11 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 // https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg
 
 const MovieCard = (props) => {
+    let fetchID;
+    props.movieObject.movieAPI_ID ? fetchID = props.movieObject.movieAPI_ID : fetchID = props.movieObject.id
 
     let imageUrl = `https://image.tmdb.org/t/p/w500${props.movieObject.poster_path}`
     return (
@@ -21,7 +24,9 @@ const MovieCard = (props) => {
             </button>
             
             <button className="ui inverted violet basic button justify-btn">
-              <span className="movie-card-links moreInfo">Details</span>
+              <span className="movie-card-links moreInfo">
+                <Link to={`/movies/${fetchID}`}>Details</Link>
+              </span>
             </button>
   
         </div>

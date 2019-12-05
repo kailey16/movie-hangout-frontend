@@ -1,0 +1,97 @@
+/* MAIN PAGE LAYOUT */
+.loginPage {
+    /* border: 5px solid blue; */
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 5% auto;
+    grid-template-areas: 
+    "header header"
+    "form about";
+}
+
+.login-page-navbar {
+    grid-area: header;
+}
+
+.login-signup-container {
+    grid-area: form;
+}
+
+.form-about-container {
+    grid-area: about;
+}
+
+/* FORM SECTION STYLING AND LAYOUT */
+.LoginForm {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 10% auto 10%;
+    grid-template-rows: 10% auto 10%;
+    color: white;
+    grid-template-areas: 
+    ". . ."
+    ". form ."
+    ". . .";
+}
+
+.LoginForm-container {
+    grid-area: form;
+}
+
+.form-labels {
+    color: white !important;
+}
+
+.signup-text {
+    color: #4183c4;
+    cursor: pointer;
+    margin-left: 1%;
+}
+
+.signup-text:hover {
+    color: #4162c4;
+}
+
+/* FORM ABOUT CONTAINER LAYOUT AND STYLING */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:700&display=swap');
+
+.form-about-container {
+    background: url("https://images.unsplash.com/photo-1539481915544-f5cd50562d66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2933&q=80");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: grid;
+    grid-template-rows: 0.5fr 1fr 1fr 1fr 0.1fr;
+    grid-template-columns: 0.1fr 1fr 0.1fr;
+    grid-template-areas: 
+    ". . ."
+    ". header ."
+    ". about ."
+    ". button ."
+    ". . .";
+}
+.form-about-header {
+    grid-area: header;
+    align-self: center;
+    justify-self: center;
+    text-align: left;
+}
+
+.form-about-header h1 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 3rem;
+    text-shadow: 1px 6px 14px #fff;
+    letter-spacing: 1px;
+}
+
+.form-about-section {
+    grid-area: about;
+    justify-self: center;
+}
+
+.form-about-btn-container {
+    grid-area: button;
+    justify-self: center;
+}

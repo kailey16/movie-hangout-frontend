@@ -38,7 +38,7 @@ const FilterBar = (props) => {
 
           <div className="reset-btn-container">
             <button onClick={(event) => props.resetFilters(event)}
-            className="ui blue button">Reset</button>
+            className="ui violet button">Reset</button>
           </div>
       </div>
     )
