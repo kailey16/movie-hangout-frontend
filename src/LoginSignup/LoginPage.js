@@ -30,6 +30,7 @@ class LoginPage extends React.Component {
         </div>
 
         <div className="form-about-container">
+          {/* Photo by Joshua Eckstein on Unsplash */}
           <div className="form-about-header">
             <h1>Welcome to the Movie Hangout!</h1>
           </div>
