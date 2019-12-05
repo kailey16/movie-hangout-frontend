@@ -20,7 +20,7 @@ class Show extends Component {
     return (
       <div className="Showpage">
         <Navbar />
-        <ShowContainer movie={this.state.currentMovie}/>
+        <ShowContainer movie={this.state.currentMovie} addToList={this.props.addToList}/>
         <DetailsContainer movie={this.state.currentMovie}/>
       </div>
     )

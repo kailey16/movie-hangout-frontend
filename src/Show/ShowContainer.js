@@ -9,7 +9,8 @@ const ShowContainer = (props) => {
       <div className="ShowContainer" style={{backgroundImage: `url(${background})`}}>
         <div className="showTitle">{title}</div>
         <div className="showOverview">{overview}</div>
-        <button id="saveButton" className="item ui inverted yellow button" to="/movies">Save</button>
+        <button onClick={() => {props.addToList(props.movie)}}
+        id="saveButton" className="item ui inverted yellow button" to="/movies">Save</button>
       </div>
     )
 

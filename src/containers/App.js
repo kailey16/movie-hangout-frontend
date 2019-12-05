@@ -5,6 +5,7 @@ import MovieSearch from '../MoviesSearch/MovieSearch'
 import LoginPage from '../LoginSignup/LoginPage'
 import Profile from '../Profile/Profile'
 import Show from '../Show/Show'
+import Swal from 'sweetalert2'
 
 class App extends Component {
 
@@ -12,7 +13,8 @@ class App extends Component {
     allMovies: [],
     popularMovies: [],
     topratedMovies: [],
-    currentUser: []
+    currentUser: [],
+    myMovieList: []
   }
 
   componentDidMount() {
@@ -103,6 +105,38 @@ class App extends Component {
     this.setState({currentUser: []})
   }
 
+  addToList = (movieObj) => {
+
+    fetch('http://localhost:3001/movielists', {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        "Authorization" : `Bearer ${localStorage.getItem('jwt')}`
+      }, 
+      body: JSON.stringify({
+        movie: movieObj,
+        user: this.state.currentUser.user
+      })
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      data.error ? ( 
+          Swal.fire({
+            icon: 'error',
+            title: 'Unable to Add',
+            text: `${data.error}`,
+          })
+      ) :(
+        Swal.fire({
+          icon: 'success',
+          title: 'Added',
+          text: `${data.original_title} has been added!`,
+        })
+      )
+    })
+  }
+
   render() {
     return (
       <Router>
@@ -110,11 +144,11 @@ class App extends Component {
           <Route exact path="/" render={() => <Home allMovies={this.state.allMovies} popularMovies={this.state.popularMovies} topratedMovies={this.state.topratedMovies} currentUser={this.state.currentUser}
           signOut={this.signOut}/>} />
 
-          <Route exact path="/movies" render={() => <MovieSearch allMovies={this.state.allMovies} currentUser={this.state.currentUser} signOut={this.signOut} />}/>
+          <Route exact path="/movies" render={() => <MovieSearch allMovies={this.state.allMovies} currentUser={this.state.currentUser} signOut={this.signOut} addToList={this.addToList}/>}/>
 
           <Route exact path="/movies/:id" render={(props) => {
             let id = props.match.params.id
-            return <Show movieId={id} currentUser={this.state.currentUser} signOut={this.signOut} />
+            return <Show movieId={id} currentUser={this.state.currentUser} signOut={this.signOut} addToList={this.addToList}/>
           }} />
 
           <Route exact path="/login" render={() => {
