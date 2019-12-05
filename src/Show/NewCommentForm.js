@@ -38,12 +38,12 @@ class NewCommentForm extends React.Component {
   render() {
     return (
       <div className="commentFormCon">
-        <p>Leave comments for the movie</p>
+        <p className="formLabel">What did you think about this movie?</p>
         <form id="NewCommentForm" className="ui form" onSubmit={this.newCommentSubmit}>
           <div className="field">
             <textarea rows="2" name="content" form="NewCommentForm" onChange={this.commentContentChange} value={this.state.commentContent}></textarea>
           </div>
-          <button className="ui inverted yellow basic button" type="submit">Submit</button>
+          <button className="ui inverted basic button" type="submit">Submit</button>
         </form>
       </div>
     )

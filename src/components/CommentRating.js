@@ -5,9 +5,9 @@ const CommentRating = (props) => {
 
     return (
       <div className="CommentRating">
-        {props.movieComments.map(comm => <Comment key={comm.id} comment={comm} deleteComment={props.deleteComment}/>)}
+        {props.movieComments && props.movieComments.map(comm => <Comment key={comm.id} comment={comm} deleteComment={props.deleteComment}/>)}
       </div>
-    )
+    ) 
 
 }
 

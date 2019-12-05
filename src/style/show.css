@@ -52,13 +52,36 @@
 }
 
 /* comments */
-
 .comments {
-  margin-top: 7vh;
+  margin-top: 8vh;
   font-size: 1.5vw;
+}
+
+.formLabel {
+  margin: 0;
+  font-size: 1.2vw;
+  font-weight: bold;
+  margin-bottom: 1vh;
 }
 
 .commentFormCon {
   width: 20vw;
   font-size: 1.3vw;
+  text-align: center;
+}
+
+/* comment */
+.Comment {
+  border-style: solid;
+  border-color: #FFDC00;
+  border-width: 2px;
+  margin-top: 2vh;
+  padding:1vh;
+  width: 20vw;
+  font-size: 1.1vw;
+  border-radius: 15px;
+}
+
+.comDeleteButton {
+  float: right;
 }
