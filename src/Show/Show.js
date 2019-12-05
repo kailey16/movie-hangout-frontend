@@ -23,9 +23,32 @@ class Show extends Component {
   getMovieComments = (movie) => {
     let movieApiID;
     movie.movieAPI_ID ? movieApiID = movie.movieAPI_ID : movieApiID = movie.id
+    
     fetch(`http://localhost:3001/comments/movie/${movieApiID}`)
     .then(res => res.json())
     .then(comments => this.setState({movieComments: comments}))
+  }
+
+  addComment = (comment) => {
+    this.setState(pre => {
+      return {movieComments: [...pre.movieComments, comment]}
+    })
+  }
+
+  deleteComment = (comment) => {
+    fetch(`http://localhost:3001/comments/${comment.id}`, {
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization' : `Bearer ${localStorage.getItem('jwt')}`
+      }
+    })
+    .then(res => res.json())
+    .then(deletedComment => {
+      const newComments = this.state.movieComments.filter(comm => comm.id !== deletedComment.id)
+      this.setState({movieComments: newComments})
+    })
   }
 
   render() {
@@ -33,7 +56,7 @@ class Show extends Component {
       <div className="Showpage">
         <Navbar />
         <ShowContainer movie={this.state.currentMovie}/>
-        <DetailsContainer movie={this.state.currentMovie} newCommnetAdded={this.props.newCommnetAdded}/>
+        <DetailsContainer movie={this.state.currentMovie} newCommnetAdded={this.props.newCommnetAdded} movieComments={this.state.movieComments} addComment={this.addComment} deleteComment={this.deleteComment}/>
       </div>
     )
   }

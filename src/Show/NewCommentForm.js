@@ -29,7 +29,10 @@ class NewCommentForm extends React.Component {
     .then(res => res.json())
     .then(newComment => {
       this.props.newCommnetAdded(newComment)
+      this.props.addComment(newComment)
     })
+
+    this.setState({commentContent: ""})
   }
 
   render() {

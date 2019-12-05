@@ -1,13 +1,14 @@
 import React from 'react';
 
-const Comment = () => {
+const Comment = (props) => {
 
     return (
       <div className="Comment">
-        Comment
+        {props.comment.content}  
+        <i className="window close outline icon" onClick={() => props.deleteComment(props.comment)}></i>
       </div>
     )
 
 }
 
-export default Comment
+export default Comment  

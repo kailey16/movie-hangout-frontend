@@ -1,12 +1,11 @@
 import React from 'react';
 import Comment from './Comment'
 
-const CommentRating = () => {
+const CommentRating = (props) => {
 
     return (
       <div className="CommentRating">
-        CommentRating
-        <Comment />
+        {props.movieComments.map(comm => <Comment key={comm.id} comment={comm} deleteComment={props.deleteComment}/>)}
       </div>
     )
 
