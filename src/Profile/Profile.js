@@ -13,7 +13,7 @@ class Profile extends Component {
     this.props.currentUser.user ? user = this.props.currentUser.user : user = this.props.currentUser
 
     let myComments;
-    user ? (myComments = this.props.allComments.filter(comm => comm.user_id === this.props.currentUser.user.id)) : (myComments = [])
+    user ? (myComments = this.props.allComments.filter(comm => comm.user_id === user.id)) : (myComments = [])
 
     return (
       <div className="Profile">
@@ -21,7 +21,7 @@ class Profile extends Component {
         <div id="profileCon" className="ui grid">
           <UserContainer user={user}/>
           <MymoviesContainer />
-          <CommentRating classes="five wide column" movieComments={myComments} deleteComment={this.props.handleDeleteComment}/>
+          <CommentRating classes="four wide column" movieComments={myComments} deleteComment={this.props.handleDeleteComment}/>
         </div>
       </div>
     )

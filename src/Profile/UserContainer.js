@@ -5,7 +5,7 @@ const UserContainer = (props) => {
   const { avatar, bio, favortie_genre, location, username } = props.user
 
   return (
-    <div className="UserContainer five wide column">
+    <div className="UserContainer four wide column">
       <img className="profileImg" src={avatar} alt="profile avatar"/><br/>
       <div className="profileInfos">
         <p className="info username">{username}</p>
