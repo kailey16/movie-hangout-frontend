@@ -7,14 +7,15 @@ import '../style/profile.css'
 
 
 class Profile extends Component {
-
   deleteComment = (comment) => {
     this.props.handleDeleteComment(comment)
     .then()
   }
 
   render() {
-    const user = this.props.currentUser.user
+    let user;
+    this.props.currentUser.user ? user = this.props.currentUser.user : user = this.props.currentUser
+
     let myComments;
     user ? (myComments = this.props.allComments.filter(comm => comm.user_id === this.props.currentUser.user.id)) : (myComments = [])
 
