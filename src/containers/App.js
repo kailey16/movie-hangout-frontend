@@ -46,11 +46,25 @@ class App extends Component {
       })
       .then(res => res.json())
       .then(user => {
-        console.log(user)
-        this.setState({currentUser: user})
+        this.setState({currentUser: user}, this.getMovieLists(user))
       })
     }
   } // componentDidMount ends
+
+  //getting the movie lists 
+  getMovieLists = (user) => {
+    // debugger
+    fetch('http://localhost:3001/movielists', {
+      headers: {
+        "Authorization" : `Bearer ${localStorage.getItem('jwt')}`,
+        "User": user
+      }
+    })
+    .then(resp => resp.json())
+    .then(movielists => {
+      debugger;
+    })
+  }
 
 
   // handling login & signup
