@@ -5,6 +5,7 @@ import MovieSearch from '../MoviesSearch/MovieSearch'
 import LoginPage from '../LoginSignup/LoginPage'
 import Profile from '../Profile/Profile'
 import Show from '../Show/Show'
+import Swal from 'sweetalert2'
 
 class App extends Component {
 
@@ -13,7 +14,8 @@ class App extends Component {
     popularMovies: [],
     topratedMovies: [],
     currentUser: [],
-    allComments: []
+    allComments: [],
+    myMovieList: []
   }
 
   componentDidMount() {
@@ -55,6 +57,27 @@ class App extends Component {
   loggingIn = (event, userInfo) => {
     event.preventDefault()
     console.log(userInfo)
+    fetch('http://localhost:3001/api/v1/login', {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }, 
+      body: JSON.stringify({
+      user: {
+          username: userInfo.username,
+          password: userInfo.password
+        }
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      localStorage.setItem("jwt", data.jwt)
+      this.setState({currentUser: data.user})
+    })
+
+
   }
 
   signUp = (event, userInfo) => {
@@ -84,7 +107,43 @@ class App extends Component {
       localStorage.setItem("jwt", data.jwt)
       this.setState({currentUser: data.user})
     })
+  }
 
+  signOut = () => {
+    localStorage.removeItem('jwt')
+    this.setState({currentUser: []})
+  }
+
+  addToList = (movieObj) => {
+
+    fetch('http://localhost:3001/movielists', {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        "Authorization" : `Bearer ${localStorage.getItem('jwt')}`
+      }, 
+      body: JSON.stringify({
+        movie: movieObj,
+        user: this.state.currentUser.user
+      })
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      data.error ? ( 
+          Swal.fire({
+            icon: 'error',
+            title: 'Unable to Add',
+            text: `${data.error}`,
+          })
+      ) :(
+        Swal.fire({
+          icon: 'success',
+          title: 'Added',
+          text: `${data.original_title} has been added!`,
+        })
+      )
+    })
   }
 
 
@@ -114,17 +173,30 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Route exact path="/" render={() => <Home allMovies={this.state.allMovies} popularMovies={this.state.popularMovies} topratedMovies={this.state.topratedMovies}/>} />
-          <Route exact path="/movies" render={() => <MovieSearch allMovies={this.state.allMovies}/>}/>
+          <Route exact path="/" render={() => <Home allMovies={this.state.allMovies} popularMovies={this.state.popularMovies} topratedMovies={this.state.topratedMovies} currentUser={this.state.currentUser}
+          signOut={this.signOut}/>} />
+
+          <Route exact path="/movies" render={() => <MovieSearch allMovies={this.state.allMovies} currentUser={this.state.currentUser} signOut={this.signOut} addToList={this.addToList}/>}/>
+
           <Route exact path="/movies/:id" render={(props) => {
             let id = props.match.params.id
-            return <Show movieId={id} newCommnetAdded={this.newCommnetAdded} allComments={this.state.allComments} handleDeleteComment={this.handleDeleteComment}/>
+            return <Show movieId={id} newCommnetAdded={this.newCommnetAdded} allComments={this.state.allComments} handleDeleteComment={this.handleDeleteComment} currentUser={this.state.currentUser} 
+            signOut={this.signOut} addToList={this.addToList}
+            />
           }} />
+
           <Route exact path="/login" render={() => {
           return this.state.currentUser.length === 0 ? <LoginPage currentUser={this.state.currentUser} loggingIn={this.loggingIn}
           signUp={this.signUp} /> : <Redirect to="/profile"/>
           }}/>
-          <Route exact path="/profile" render={() => <Profile handleDeleteComment={this.handleDeleteComment} allComments={this.state.allComments} currentUser={this.state.currentUser}/>} />
+ 
+          <Route exact path="/profile" render={() => {
+          return this.state.currentUser.length === 0 ? <Redirect to="/login"/> :
+          < Profile currentUser={this.state.currentUser} 
+          signOut={this.signOut} handleDeleteComment={this.handleDeleteComment} allComments={this.state.allComments}/> 
+          
+          }}/>
+          
         </div>
       </Router>
     )

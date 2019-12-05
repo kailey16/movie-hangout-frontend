@@ -2,8 +2,21 @@ import React from 'react';
 
 
 class LoginForm extends React.Component {
-    render(){
-      
+  constructor(){
+    super();
+
+    this.state ={
+      username: "",
+      password: ""
+    }
+  }
+    
+  
+    updateFormFields = (event) => {
+      this.setState({[event.target.name]: event.target.value})
+    }
+
+    render(){    
       return (
         <div className="LoginForm">
           
@@ -12,13 +25,15 @@ class LoginForm extends React.Component {
             <form className="ui form">
               <div className="field">
                 <label className="form-labels">First Name</label>
-                <input type="text" name="first-name" placeholder="First Name"/>
+                <input onChange={(event) => this.updateFormFields(event)}
+                type="text" name="username" placeholder="First Name"/>
               </div>
               <div className="field">
-                <label className="form-labels">Last Name</label>
-                <input type="text" name="last-name" placeholder="Last Name"/>
+                <label className="form-labels">Password</label>
+                <input onChange={(event) => this.updateFormFields(event)}
+                type="password" name="password" placeholder="Last Name"/>
               </div>
-              <button onClick={(event) => this.props.loggingIn(event)}
+              <button onClick={(event) => this.props.loggingIn(event, this.state)}
               className="ui button" type="submit">Submit</button>
   
               <span> Or <span className="signup-text"

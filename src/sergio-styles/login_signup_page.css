@@ -57,7 +57,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:700&display=swap');
 
 .form-about-container {
-    background: url("https://images.unsplash.com/photo-1539481915544-f5cd50562d66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2933&q=80");
+    background: url("../style/joshua-eckstein-lbRzSxHS2kU-unsplash.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -76,14 +76,15 @@
     grid-area: header;
     align-self: center;
     justify-self: center;
-    text-align: left;
+    text-align: center;
 }
 
 .form-about-header h1 {
     font-family: 'Roboto Slab', serif;
-    font-size: 3rem;
+    font-size: 4rem;
     text-shadow: 1px 6px 14px #fff;
     letter-spacing: 1px;
+    margin-bottom: 2vh !important;
 }
 
 .form-about-section {

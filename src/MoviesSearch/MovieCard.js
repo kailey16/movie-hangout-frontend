@@ -19,7 +19,8 @@ const MovieCard = (props) => {
             <h3>{props.movieObject.title || props.movieObject.original_title}</h3>
           </div>
 
-            <button className="ui inverted violet basic button justify-btn">
+            <button onClick={() =>  props.addToList(props.movieObject)}
+            className="ui inverted violet basic button justify-btn">
               <span className="movie-card-links addBtn">Add</span>
             </button>
             

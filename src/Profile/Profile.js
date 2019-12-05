@@ -20,7 +20,7 @@ class Profile extends Component {
 
     return (
       <div className="Profile">
-        <Navbar />
+        <Navbar currentUser={this.props.currentUser} signOut={this.props.signOut}/>
         <div id="profileCon" className="ui grid">
           <UserContainer user={user}/>
           <MymoviesContainer />

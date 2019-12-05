@@ -128,12 +128,12 @@ class MovieSearch extends Component {
     
     return (
       <div>
-        <Navbar />
+        <Navbar currentUser={this.props.currentUser} signOut={this.props.signOut}/>
         <div className="ui container movieCards">
           < FilterBar resetFilters={this.resetFilters}
           updateSearch={this.updateSearchText} updateGenre={this.updateGenre} updateSortBy={this.updateSortBy}/>
           
-          < CardsContainer popularMovies={this.state.searchMovies.filter(movie => movie.original_title.toLowerCase().includes(this.state.searchText)).slice(0, 20)}/>
+          < CardsContainer popularMovies={this.state.searchMovies.filter(movie => movie.original_title.toLowerCase().includes(this.state.searchText)).slice(0, 20)} addToList={this.props.addToList}/>
           {this.state.searchMovies.length !== 20 ? null : (
             < NextPage previousPage={this.previousPage} nextPage={this.nextPage} page={this.state.page}/>
           )}

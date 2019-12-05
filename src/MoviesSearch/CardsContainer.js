@@ -9,7 +9,7 @@ class CardsContainer extends Component{
     return (
       <div className="CardsContainer">
         {this.props.popularMovies.map(movie => {
-          return <MovieCard key={movie.id} movieObject={movie}/>
+          return <MovieCard key={movie.id} movieObject={movie} addToList={this.props.addToList}/>
         })}
       </div>
     )
