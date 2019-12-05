@@ -17,6 +17,8 @@ class App extends Component {
   }
 
   componentDidMount() {
+
+    // fetching movie data
     fetch("http://localhost:3001/popular/1")
     .then(res => res.json())
     .then(popularMovies => this.setState({popularMovies: popularMovies}))
@@ -33,6 +35,7 @@ class App extends Component {
     .then(res => res.json())
     .then(comments => this.setState({allComments: comments}))
 
+    // getting user
     if(localStorage.getItem('jwt')){
       fetch('http://localhost:3001/api/v1/profile', {
         headers: {
@@ -42,14 +45,13 @@ class App extends Component {
       .then(res => res.json())
       .then(user => {
         console.log(user)
-        this.setState({
-          currentUser: user
-        })
+        this.setState({currentUser: user})
       })
     }
-
   } // componentDidMount ends
 
+
+  // handling login & signup
   loggingIn = (event, userInfo) => {
     event.preventDefault()
     console.log(userInfo)
@@ -85,11 +87,28 @@ class App extends Component {
 
   }
 
+
+  // comment add & remove for allComments
   newCommnetAdded = (newComment) => {
     this.setState(pre => {
       return {allComments: [...pre.allComments, newComment]}
     })
   }
+
+  handleDeleteComment = (comment) => {
+    return (
+      fetch(`http://localhost:3001/comments/${comment.id}`, {
+        method: "DELETE",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization' : `Bearer ${localStorage.getItem('jwt')}`
+        }
+      })
+      .then(res => res.json())
+    )
+  }
+
 
   render() {
     return (
@@ -99,16 +118,13 @@ class App extends Component {
           <Route exact path="/movies" render={() => <MovieSearch allMovies={this.state.allMovies}/>}/>
           <Route exact path="/movies/:id" render={(props) => {
             let id = props.match.params.id
-            return <Show movieId={id} newCommnetAdded={this.newCommnetAdded} allComments={this.state.allComments}/>
+            return <Show movieId={id} newCommnetAdded={this.newCommnetAdded} allComments={this.state.allComments} handleDeleteComment={this.handleDeleteComment}/>
           }} />
           <Route exact path="/login" render={() => {
-          
           return this.state.currentUser.length === 0 ? <LoginPage currentUser={this.state.currentUser} loggingIn={this.loggingIn}
           signUp={this.signUp} /> : <Redirect to="/profile"/>
-          
           }}/>
-
-          <Route exact path="/profile" component={Profile}/>
+          <Route exact path="/profile" render={() => <Profile handleDeleteComment={this.handleDeleteComment} allComments={this.state.allComments} currentUser={this.state.currentUser}/>} />
         </div>
       </Router>
     )

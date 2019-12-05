@@ -36,15 +36,7 @@ class Show extends Component {
   }
 
   deleteComment = (comment) => {
-    fetch(`http://localhost:3001/comments/${comment.id}`, {
-      method: "DELETE",
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Authorization' : `Bearer ${localStorage.getItem('jwt')}`
-      }
-    })
-    .then(res => res.json())
+    this.props.handleDeleteComment(comment)
     .then(deletedComment => {
       const newComments = this.state.movieComments.filter(comm => comm.id !== deletedComment.id)
       this.setState({movieComments: newComments})

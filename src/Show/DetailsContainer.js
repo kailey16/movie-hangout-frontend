@@ -21,7 +21,7 @@ class DetailsContainer extends Component {
         </div>
         <div className="comments five wide column">
           <NewCommentForm movie={this.props.movie} newCommnetAdded={this.props.newCommnetAdded} addComment={this.props.addComment} /> 
-          <CommentRating movieComments={this.props.movieComments} deleteComment={this.props.deleteComment}/>
+          <CommentRating movieComments={this.props.movieComments} deleteComment={this.props.deleteComment} classes="" />
         </div>
       </div>
     )

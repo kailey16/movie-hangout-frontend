@@ -4,7 +4,7 @@ import React from 'react';
 const MyMoviesContainer = () => {
 
     return (
-      <div className="MyMoviesContainer">
+      <div className="MyMoviesContainer five wide column">
         MyMoviesContainer
         {/* poster componenet has been giving errors */}
         {/* <Poster /> */} 
