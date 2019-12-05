@@ -20,7 +20,7 @@ class DetailsContainer extends Component {
           {production_companies && <p className="details">Production Companies<br></br><span className="detailSpan">{production_companies.map(com => com.name).join(", ")}</span></p>}
         </div>
         <div className="comments five wide column">
-          <NewCommentForm /> 
+          <NewCommentForm movie={this.props.movie}/> 
           <CommentRating />
         </div>
       </div>
