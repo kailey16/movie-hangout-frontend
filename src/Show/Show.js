@@ -7,13 +7,25 @@ import '../style/show.css'
 class Show extends Component { 
 
   state = {
-      currentMovie: {}
+      currentMovie: {},
+      movieComments: []
   }
-  
+
   componentDidMount() {
     fetch(`http://localhost:3001/movie/${this.props.movieId}`)
     .then(res => res.json())
-    .then(movie => this.setState({currentMovie: movie}))
+    .then(movie => {
+      this.setState({currentMovie: movie},
+      this.getMovieComments(movie))
+    })
+  }
+
+  getMovieComments = (movie) => {
+    let movieApiID;
+    movie.movieAPI_ID ? movieApiID = movie.movieAPI_ID : movieApiID = movie.id
+    fetch(`http://localhost:3001/comments/movie/${movieApiID}`)
+    .then(res => res.json())
+    .then(comments => this.setState({movieComments: comments}))
   }
 
   render() {
@@ -21,7 +33,7 @@ class Show extends Component {
       <div className="Showpage">
         <Navbar />
         <ShowContainer movie={this.state.currentMovie}/>
-        <DetailsContainer movie={this.state.currentMovie}/>
+        <DetailsContainer movie={this.state.currentMovie} newCommnetAdded={this.props.newCommnetAdded}/>
       </div>
     )
   }

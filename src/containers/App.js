@@ -12,7 +12,8 @@ class App extends Component {
     allMovies: [],
     popularMovies: [],
     topratedMovies: [],
-    currentUser: []
+    currentUser: [],
+    myComments: []
   }
 
   componentDidMount() {
@@ -37,10 +38,22 @@ class App extends Component {
       .then(res => res.json())
       .then(user => {
         console.log(user)
-        this.setState({currentUser: user})
+        this.setState({
+          currentUser: user
+        },this.getMyComments(user))
       })
-
     }
+
+  } // componentDidMount ends
+
+  getMyComments = (user) => {
+    fetch(`http://localhost:3001/comments/${user.user.id}`, {
+      headers: {
+        "Authorization" : `Bearer ${localStorage.getItem('jwt')}`
+      }
+    })
+    .then(res => res.json())
+    .then(comments => this.setState({myComments: comments}))
   }
 
   loggingIn = (event, userInfo) => {
@@ -78,6 +91,12 @@ class App extends Component {
 
   }
 
+  newCommnetAdded = (newComment) => {
+    this.setState(pre => {
+      return {myComments: [...pre.myComments, newComment]}
+    })
+  }
+
   render() {
     return (
       <Router>
@@ -86,7 +105,7 @@ class App extends Component {
           <Route exact path="/movies" render={() => <MovieSearch allMovies={this.state.allMovies}/>}/>
           <Route exact path="/movies/:id" render={(props) => {
             let id = props.match.params.id
-            return <Show movieId={id} />
+            return <Show movieId={id} newCommnetAdded={this.newCommnetAdded}/>
           }} />
           <Route exact path="/login" render={() => {
           

@@ -6,35 +6,31 @@ class NewCommentForm extends React.Component {
     commentContent: ""
   }
 
-  commentContentChange = (e) => {
+  commentContentChange = (e) => { 
     this.setState({commentContent: e.target.value})
   }
 
   newCommentSubmit = (e) => {
-    e.preventDefault()
-    let content = e.target.content.value
-    let movieId;
-    this.props.movie.movieAPI_ID ? movieId = this.props.movie.movieAPI_ID : movieId = this.props.movie.id
-
     e.preventDefault();
-    fetch("http://localhost:3000/comments", {
+    let content = e.target.content.value
+
+    fetch("http://localhost:3001/comments", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'Authorization' : `Bearer ${localStorage.getItem('jwt')}`
       },
       body: JSON.stringify({
-        movieId: movieId,
+        movie: this.props.movie,
         content: content
       })
     })
     .then(res => res.json())
-    .then(newPoke => {
-      console.log(newPoke)
-      this.props.addPokeFromForm(newPoke)})
+    .then(newComment => {
+      this.props.newCommnetAdded(newComment)
+    })
   }
-
-
 
   render() {
     return (
