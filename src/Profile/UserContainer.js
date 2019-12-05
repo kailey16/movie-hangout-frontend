@@ -6,11 +6,15 @@ const UserContainer = (props) => {
 
   return (
     <div className="UserContainer five wide column">
-      <img className="ui medium circular image" src={avatar} alt="profile avatar"/><br/>
-      <p>{username}</p><br/>
-      <p>{location}</p>
-      <p>{bio}</p>
-      <p>My favorite genre is: {favortie_genre}</p>
+      <img className="profileImg" src={avatar} alt="profile avatar"/><br/>
+      <div className="profileInfos">
+        <p className="info username">{username}</p>
+        <p className="info infoOption">I live in</p>
+        <p className="info">{location}</p>
+        <p className="info">{bio}</p>
+        <p className="info infoOption">Favorite Genre</p>
+        <p className="info">{favortie_genre}</p>
+      </div>
     </div>
   )} else {return null}
 }

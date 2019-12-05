@@ -1,3 +1,29 @@
 #profileCon {
-  margin-top: 5vh;
+  margin: 5vh 0 0 5vw;
+  text-align: center;
+}
+
+.profileImg {
+  height: 20vw;
+  width: 20vw;
+}
+
+.profileInfos {
+  margin-top: 2vh;
+  font-size: 1.3vw;
+}
+
+.info {
+  margin: 0;
+}
+
+.username {
+  margin-bottom: 2vh;
+  font-size: 1.7vw;
+  font-weight: bold;
+}
+
+.infoOption {
+  color: #FFDC00;
+  font-weight: bold;
 }

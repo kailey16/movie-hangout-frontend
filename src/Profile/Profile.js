@@ -8,11 +8,6 @@ import '../style/profile.css'
 
 class Profile extends Component {
 
-  deleteComment = (comment) => {
-    this.props.handleDeleteComment(comment)
-    .then()
-  }
-
   render() {
     const user = this.props.currentUser.user
     let myComments;
@@ -24,7 +19,7 @@ class Profile extends Component {
         <div id="profileCon" className="ui grid">
           <UserContainer user={user}/>
           <MymoviesContainer />
-          <CommentRating classes="five wide column" movieComments={myComments} deleteComment={this.deleteComment}/>
+          <CommentRating classes="five wide column" movieComments={myComments} deleteComment={this.props.handleDeleteComment}/>
         </div>
       </div>
     )

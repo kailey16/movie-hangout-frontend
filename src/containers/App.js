@@ -165,6 +165,10 @@ class App extends Component {
         }
       })
       .then(res => res.json())
+      .then(deletedComment => {
+        const newComments = this.state.allComments.filter(comm => comm.id !== deletedComment.id)
+        this.setState({allComments: newComments})
+      })
     )
   }
 
@@ -180,7 +184,7 @@ class App extends Component {
 
           <Route exact path="/movies/:id" render={(props) => {
             let id = props.match.params.id
-            return <Show movieId={id} newCommnetAdded={this.newCommnetAdded} allComments={this.state.allComments} handleDeleteComment={this.handleDeleteComment} currentUser={this.state.currentUser} 
+            return <Show movieId={id} newCommnetAdded={this.newCommnetAdded} allComments={this.state.allComments} currentUser={this.state.currentUser} 
             signOut={this.signOut} addToList={this.addToList}
             />
           }} />
