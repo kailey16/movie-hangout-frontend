@@ -57,7 +57,7 @@ class Show extends Component {
       <div className="Showpage">
         <Navbar />
         <ShowContainer movie={this.state.currentMovie} addToList={this.props.addToList}/>
-        <DetailsContainer movie={this.state.currentMovie} newCommnetAdded={this.props.newCommnetAdded} movieComments={this.state.movieComments} addComment={this.addComment} deleteComment={this.deleteComment}/>
+        <DetailsContainer movie={this.state.currentMovie} newCommnetAdded={this.props.newCommnetAdded} movieComments={this.state.movieComments} addComment={this.addComment} deleteComment={this.deleteComment} user={this.props.user}/>
       </div>
     )
   }

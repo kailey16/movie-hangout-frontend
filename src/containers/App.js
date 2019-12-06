@@ -127,7 +127,7 @@ class App extends Component {
     this.setState({currentUser: []})
   }
 
-  
+
   // ADD MOVIE TO MY LIST
   addToList = (movieObj) => {
 
@@ -206,7 +206,7 @@ class App extends Component {
 
           <Route exact path="/movies/:id" render={(props) => {
             let id = props.match.params.id
-            return <Show movieId={id} newCommnetAdded={this.newCommnetAdded} allComments={this.state.allComments} currentUser={this.state.currentUser} 
+            return <Show movieId={id} newCommnetAdded={this.newCommnetAdded} allComments={this.state.allComments} user={this.state.currentUser} 
             signOut={this.signOut} addToList={this.addToList} removeFromAllComments={this.removeFromAllComments}
             />
           }} />
