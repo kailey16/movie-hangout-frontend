@@ -36,7 +36,7 @@ class LoginPage extends React.Component {
           </div>
 
           <div className="form-about-section">
-            <p>Login or Sign to enjoy all of the great feature we have to offer.</p>
+            <p>The Movie Hangout was created to be able to browse and save movies to a favorites list. Feel free to browse around hitting the browse button below! Please sign up or log in, if you want to save movies to your list or add reviews. Happy broswing!</p>
           </div>
 
           <div className="form-about-btn-container">
