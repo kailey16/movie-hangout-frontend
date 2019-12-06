@@ -54,7 +54,8 @@ class App extends Component {
 
   //GETTING MY MOVIES FROM MY LIST
   getMovieLists = (user) => {
-    let myAccount = user.user.id
+    let myAccount;
+    user.id ? myAccount = user.id : myAccount = user.user.id
     
     fetch('http://localhost:3001/movielists', {
       headers: {
@@ -91,6 +92,7 @@ class App extends Component {
       console.log(data)
       localStorage.setItem("jwt", data.jwt)
       this.setState({currentUser: data.user})
+      this.getMovieLists(data.user)
     })
   }
 
@@ -125,7 +127,7 @@ class App extends Component {
 
   signOut = () => {
     localStorage.removeItem('jwt')
-    this.setState({currentUser: []})
+    this.setState({currentUser: [], myMovieList: []})
   }
 
 
