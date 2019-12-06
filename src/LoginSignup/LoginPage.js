@@ -3,6 +3,7 @@ import LoginForm from './LoginForm'
 import SignupForm from './SignupForm'
 import Navbar from '../components/Navbar'
 import "../sergio-styles/login_signup_page.css"
+import { Link } from 'react-router-dom'
 
 class LoginPage extends React.Component {
   constructor(){
@@ -40,7 +41,7 @@ class LoginPage extends React.Component {
           </div>
 
           <div className="form-about-btn-container">
-              <button className="ui yellow button">Browse</button>
+              <Link className="ui yellow button" to="/movies">Browse</Link>
           </div>
           
         </div>

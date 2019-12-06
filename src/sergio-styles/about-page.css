@@ -1,0 +1,88 @@
+.about-page-container { 
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 10% auto 10%;
+    grid-template-rows: 5% auto 5%;
+    grid-template-areas: 
+    ". . ."
+    ". card ."
+    ". . .";
+}
+
+.about-page-card {
+    grid-area: card
+}
+
+@import url('https://fonts.googleapis.com/css?family=Bungee&display=swap');
+
+.api-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-self: center;
+    justify-self: center;
+}
+
+.api-text {
+    align-self: center;
+    font-family: 'Bungee', cursive;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+}
+
+.built-container {
+    /* border: 5px solid white; */
+    border-top: 3px solid white;
+    padding-top: 2%;
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "pic text";
+}
+
+.build-img-container {
+    grid-area: pic;
+    text-align: center;
+    /* display: grid;
+    grid-template-rows: 1fr 1fr; */
+}
+
+.build-img-container img {
+    width: 20%;
+    height: 20%;
+}
+
+.buld-text-container{
+    grid: text;
+    font-family: 'Bungee', cursive;
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+    align-self: center;
+    justify-self: center;
+}
+
+.creators-container {
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
+    text-align: center;
+    margin-top: 1%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+
+}
+
+.creators-container h2 a {
+    padding-left: 1%;
+    padding-right: 1%
+}
+
+.meme-img-container {
+    text-align: center;
+    padding-top: 5%;
+}
+
+.meme-img-container img {
+    width: 30%;
+    height: 30%;
+}
+
+

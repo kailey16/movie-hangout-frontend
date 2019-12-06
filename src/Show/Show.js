@@ -53,9 +53,10 @@ class Show extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div className="Showpage">
-        <Navbar />
+        <Navbar currentUser={this.props.currentUser} signOut={this.props.signOut}/>
         <ShowContainer movie={this.state.currentMovie} addToList={this.props.addToList}/>
         <DetailsContainer movie={this.state.currentMovie} newCommnetAdded={this.props.newCommnetAdded} movieComments={this.state.movieComments} addComment={this.addComment} deleteComment={this.deleteComment}/>
       </div>

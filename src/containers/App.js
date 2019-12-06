@@ -6,6 +6,7 @@ import LoginPage from '../LoginSignup/LoginPage'
 import Profile from '../Profile/Profile'
 import Show from '../Show/Show'
 import Swal from 'sweetalert2'
+import About from '../about/About'
 
 class App extends Component {
 
@@ -218,6 +219,7 @@ class App extends Component {
           
           }}/> 
           
+          <Route exact path="/about" render={() => < About />} />
         </div>
       </Router>
     )
