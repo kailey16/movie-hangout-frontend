@@ -145,7 +145,8 @@ class App extends Component {
     })
     .then(resp => resp.json())
     .then(data => {
-      this.setState(pre => {return {myMovieList: [...pre.myMovieList, data]}})
+      if (data.original_title) {
+      this.setState(pre => {return {myMovieList: [...pre.myMovieList, data]}}) }
       data.message ? ( 
           Swal.fire({
             icon: 'error',
@@ -206,7 +207,7 @@ class App extends Component {
 
           <Route exact path="/movies/:id" render={(props) => {
             let id = props.match.params.id
-            return <Show movieId={id} newCommnetAdded={this.newCommnetAdded} allComments={this.state.allComments} user={this.state.currentUser} 
+            return <Show movieId={id} newCommnetAdded={this.newCommnetAdded} allComments={this.state.allComments} currentUser={this.state.currentUser} 
             signOut={this.signOut} addToList={this.addToList} removeFromAllComments={this.removeFromAllComments}
             />
           }} />
