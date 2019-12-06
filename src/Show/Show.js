@@ -48,6 +48,7 @@ class Show extends Component {
     .then(deletedComment => {
       const newComments = this.state.movieComments.filter(comm => comm.id !== deletedComment.id)
       this.setState({movieComments: newComments})
+      this.props.removeFromAllComments(deletedComment)
     })
   }
 

@@ -21,7 +21,7 @@ class Profile extends Component {
         <div id="profileCon" className="ui grid">
           <UserContainer user={user}/>
           <MymoviesContainer />
-          <CommentRating classes="four wide column" movieComments={myComments} deleteComment={this.props.handleDeleteComment}/>
+          <CommentRating movieComments={myComments} deleteComment={this.props.handleDeleteComment} mycomments={true} />
         </div>
       </div>
     )

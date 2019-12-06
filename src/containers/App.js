@@ -62,7 +62,7 @@ class App extends Component {
     })
     .then(resp => resp.json())
     .then(movielists => {
-      debugger;
+      // debugger;
     })
   }
 
@@ -90,8 +90,6 @@ class App extends Component {
       localStorage.setItem("jwt", data.jwt)
       this.setState({currentUser: data.user})
     })
-
-
   }
 
   signUp = (event, userInfo) => {
@@ -186,6 +184,10 @@ class App extends Component {
     )
   }
 
+  removeFromAllComments = (deletedComment) => {
+    const newComments = this.state.allComments.filter(comm => comm.id !== deletedComment.id)
+    this.setState({allComments: newComments})
+  }
 
   render() {
     return (
@@ -199,7 +201,7 @@ class App extends Component {
           <Route exact path="/movies/:id" render={(props) => {
             let id = props.match.params.id
             return <Show movieId={id} newCommnetAdded={this.newCommnetAdded} allComments={this.state.allComments} currentUser={this.state.currentUser} 
-            signOut={this.signOut} addToList={this.addToList}
+            signOut={this.signOut} addToList={this.addToList} removeFromAllComments={this.removeFromAllComments}
             />
           }} />
 
@@ -213,7 +215,7 @@ class App extends Component {
           < Profile currentUser={this.state.currentUser} 
           signOut={this.signOut} handleDeleteComment={this.handleDeleteComment} allComments={this.state.allComments}/> 
           
-          }}/>
+          }}/> 
           
         </div>
       </Router>

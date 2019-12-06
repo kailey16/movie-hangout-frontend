@@ -9,7 +9,6 @@ import '../style/home.css'
 class Home extends Component {
 
   render() {
-    console.log(this.props)
     return (
       <div className="Home">
         <div className="homeButtons">

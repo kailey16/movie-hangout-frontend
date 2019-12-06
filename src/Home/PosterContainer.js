@@ -1,6 +1,5 @@
 import React from 'react';
 import Poster from '../components/Poster'
-import '../097.mp4'
 
 const PosterContainer = (props) => {
 

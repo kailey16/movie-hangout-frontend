@@ -1,5 +1,9 @@
 #profileCon {
   margin: 5vh 0 0 3vw;
+}
+
+/* user container */
+.UserContainer {
   text-align: center;
 }
 
@@ -8,22 +12,46 @@
   width: 20vw;
 }
 
-.profileInfos {
-  margin-top: 2vh;
-  font-size: 1.3vw;
-}
-
-.info {
-  margin: 0;
-}
-
 .username {
-  margin-bottom: 2vh;
+  margin-top: 2vh;
   font-size: 1.7vw;
   font-weight: bold;
 }
 
-.infoOption {
+.info {
+  color: #FFDC00;
+  font-size: 1.3vw;
+  font-weight: bold;
+  display: inline;
+  float: left;
+  margin: 0 0 0 2vw;
+}
+
+.infoContent {
+  color: white;
+  margin-left: 0.5vw;
+}
+
+.bio {
+  margin-top: 2vh;
+  color:#d060fc;
+}
+
+/* my movies container */
+.MyMoviesContainer {
+  text-align: center;
+}
+
+/* my comments */
+.commentMovieTitle {
+  display: inline;
   color: #FFDC00;
   font-weight: bold;
+}
+
+.commentContent {
+  display: inline;
+  color: white;
+  font-weight: normal;
+  margin-left: 1vw;
 }

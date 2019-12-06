@@ -2,10 +2,10 @@ import React from 'react';
 import Comment from './Comment'
 
 const CommentRating = (props) => {
-
+  
     return (
       <div className={props.classes}>
-        {props.movieComments && props.movieComments.map(comm => <Comment key={comm.id} comment={comm} deleteComment={props.deleteComment}/>)}
+        {(props.movieComments.length > 0) && props.movieComments.map(comm => <Comment key={comm.id} comment={comm} deleteComment={props.deleteComment} mycomments={props.mycomments} />)}
       </div>
     ) 
 

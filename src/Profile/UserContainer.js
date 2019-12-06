@@ -7,14 +7,10 @@ const UserContainer = (props) => {
   return (
     <div className="UserContainer four wide column">
       <img className="profileImg" src={avatar} alt="profile avatar"/><br/>
-      <div className="profileInfos">
-        <p className="info username">{username}</p>
-        <p className="info infoOption">I live in</p>
-        <p className="info">{location}</p>
-        <p className="info">{bio}</p>
-        <p className="info infoOption">Favorite Genre</p>
-        <p className="info">{favortie_genre}</p>
-      </div>
+      <p className="username">{username}</p>
+      <p className="info">I live in <span className="infoContent">{location}</span></p>
+      <p className="info infoOption">My favorite Genre is <span className="infoContent">{favortie_genre}</span></p>
+      <p className="info bio">{bio}</p>
     </div>
   )} else {return null}
 }

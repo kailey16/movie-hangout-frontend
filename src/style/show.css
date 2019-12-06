@@ -78,10 +78,12 @@
   margin-top: 2vh;
   padding:1vh;
   width: 20vw;
+  height: auto;
   font-size: 1.1vw;
   border-radius: 15px;
 }
 
 .comDeleteButton {
   float: right;
+  display: inline;
 }
