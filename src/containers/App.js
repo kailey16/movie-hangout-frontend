@@ -19,8 +19,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-
-    // fetching movie data
+    // FETCHING MOVIE DATA
     fetch("http://localhost:3001/popular/1")
     .then(res => res.json())
     .then(popularMovies => this.setState({popularMovies: popularMovies}))
@@ -37,7 +36,7 @@ class App extends Component {
     .then(res => res.json())
     .then(comments => this.setState({allComments: comments}))
 
-    // getting user
+    // GETTING CURRENT USER
     if(localStorage.getItem('jwt')){
       fetch('http://localhost:3001/api/v1/profile', {
         headers: {
@@ -51,7 +50,8 @@ class App extends Component {
     }
   } // componentDidMount ends
 
-  //getting the movie lists 
+
+  //GETTING MY MOVIES FROM MY LIST
   getMovieLists = (user) => {
     let myAccount = user.user.id
     
@@ -68,7 +68,7 @@ class App extends Component {
   }
 
 
-  // handling login & signup
+  // HANDLING LOGIN & SIGNUP
   loggingIn = (event, userInfo) => {
     event.preventDefault()
     console.log(userInfo)
@@ -127,6 +127,8 @@ class App extends Component {
     this.setState({currentUser: []})
   }
 
+  
+  // ADD MOVIE TO MY LIST
   addToList = (movieObj) => {
 
     fetch('http://localhost:3001/movielists', {
@@ -143,6 +145,7 @@ class App extends Component {
     })
     .then(resp => resp.json())
     .then(data => {
+      this.setState(pre => {return {myMovieList: [...pre.myMovieList, data]}})
       data.message ? ( 
           Swal.fire({
             icon: 'error',
@@ -160,7 +163,7 @@ class App extends Component {
   }
 
 
-  // comment add & remove for allComments
+  // COMMENT ADD & REMOVE
   newCommnetAdded = (newComment) => {
     this.setState(pre => {
       return {allComments: [...pre.allComments, newComment]}
@@ -190,6 +193,8 @@ class App extends Component {
     this.setState({allComments: newComments})
   }
 
+
+
   render() {
     return (
       <Router>
@@ -214,7 +219,7 @@ class App extends Component {
           <Route exact path="/profile" render={() => {
           return this.state.currentUser.length === 0 ? <Redirect to="/login"/> :
           < Profile currentUser={this.state.currentUser} 
-          signOut={this.signOut} handleDeleteComment={this.handleDeleteComment} allComments={this.state.allComments}/> 
+          signOut={this.signOut} handleDeleteComment={this.handleDeleteComment} allComments={this.state.allComments} myMovieList={this.state.myMovieList}/> 
           
           }}/> 
           

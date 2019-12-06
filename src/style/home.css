@@ -1,17 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Anton|Bangers|Bungee|Carter+One|Gloria+Hallelujah|Julius+Sans+One|Kaushan+Script|Lobster|Luckiest+Guy|Michroma|Rock+Salt|Special+Elite&display=swap');
-
-  /* font-family: 'Anton', sans-serif; */
-  /* font-family: 'Gloria Hallelujah', cursive; */
-  /* font-family: 'Luckiest Guy', cursive; */
-  /* font-family: 'Bangers', cursive; */
-  /* font-family: 'Special Elite', cursive; */
-  /* font-family: 'Carter One', cursive; */
-  /* font-family: 'Rock Salt', cursive; */
+@import url('https://fonts.googleapis.com/css?family=Bungee&display=swap');
 
 .header {
   text-align: center;
 }
-
 
 #video {
   position: absolute;

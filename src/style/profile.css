@@ -13,6 +13,7 @@
 }
 
 .username {
+  font-family: 'Bungee', cursive;
   margin-top: 2vh;
   font-size: 1.7vw;
   font-weight: bold;
@@ -39,11 +40,23 @@
 }
 
 /* my movies container */
+.myMoviesTitle {
+  font-family: 'Bungee', cursive;
+  font-size: 2vw;
+  margin-bottom: 2vh;
+}
+
 .MyMoviesContainer {
   text-align: center;
 }
 
 /* my comments */
+.myCommentsTitle {
+  font-family: 'Bungee', cursive;
+  font-size: 2vw;
+  margin: 0 0 2vh 2vw;
+}
+
 .commentMovieTitle {
   display: inline;
   color: #FFDC00;

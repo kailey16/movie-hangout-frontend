@@ -1,13 +1,11 @@
 import React from 'react';
-// import Poster from '../components/Poster'
+import Poster from '../components/Poster'
 
-const MyMoviesContainer = () => {
-
+const MyMoviesContainer = (props) => {
     return (
       <div className="MyMoviesContainer eight wide column">
-        MyMoviesContainer
-        {/* poster componenet has been giving errors */}
-        {/* <Poster /> */} 
+        <div className="myMoviesTitle">SAVED MOVIES</div>
+        {props.myMovieList.map(movie => <Poster classes="posterImg" key={movie.id} movie={movie}/>)}
       </div>
     )
 

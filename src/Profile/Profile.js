@@ -20,8 +20,8 @@ class Profile extends Component {
         <Navbar currentUser={this.props.currentUser} signOut={this.props.signOut}/>
         <div id="profileCon" className="ui grid">
           <UserContainer user={user}/>
-          <MymoviesContainer />
-          <CommentRating movieComments={myComments} deleteComment={this.props.handleDeleteComment} mycomments={true} />
+          <MymoviesContainer myMovieList={this.props.myMovieList} />
+          <CommentRating classes="mycomments four wide column" movieComments={myComments} deleteComment={this.props.handleDeleteComment} mycomments={true} />
         </div>
       </div>
     )
