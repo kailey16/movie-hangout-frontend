@@ -32,8 +32,9 @@
   margin-left: 0.5vw;
 }
 
-.bio {
+#bio {
   margin-top: 2vh;
+  text-align: left;
   color:#d060fc;
 }
 

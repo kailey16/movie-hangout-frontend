@@ -9,8 +9,8 @@ const UserContainer = (props) => {
       <img className="profileImg" src={avatar} alt="profile avatar"/><br/>
       <p className="username">{username}</p>
       <p className="info">I live in <span className="infoContent">{location}</span></p>
-      <p className="info infoOption">My favorite Genre is <span className="infoContent">{favortie_genre}</span></p>
-      <p className="info bio">{bio}</p>
+      <p className="info">My favorite Genre is <span className="infoContent">{favortie_genre}</span></p>
+      <p id="bio" className="info">{bio}</p>
     </div>
   )} else {return null}
 }
