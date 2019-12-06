@@ -1,4 +1,5 @@
 import React from 'react';
+import Swal from 'sweetalert2'
 
 class NewCommentForm extends React.Component {
 
@@ -28,9 +29,17 @@ class NewCommentForm extends React.Component {
     })
     .then(res => res.json())
     .then(newComment => {
-      console.log(newComment)
-      this.props.newCommnetAdded(newComment)
-      this.props.addComment(newComment)
+      if (newComment.message) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Unable to Add',
+          text: `${newComment.message}`,
+        })
+      } else  {
+        console.log(newComment)
+        this.props.newCommnetAdded(newComment)
+        this.props.addComment(newComment)
+      }
     })
 
     this.setState({commentContent: ""})

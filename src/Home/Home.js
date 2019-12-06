@@ -14,7 +14,7 @@ class Home extends Component {
         <div className="homeButtons">
           <Link className="item ui inverted yellow button" to="/movies">Movies</Link>
           {!Array.isArray(this.props.currentUser) ? <Link className="item ui inverted yellow button" to="/profile">Profile</Link> : <Link className="item ui inverted yellow button" to="/login">Login</Link>}
-          
+          <Link className="item ui inverted yellow button" to="/about">About</Link>
         </div>
         <Header />
         <PosterContainer allMovies={this.props.allMovies}/>
