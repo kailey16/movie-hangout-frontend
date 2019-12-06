@@ -79,17 +79,25 @@
     text-align: center;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Bungee&display=swap');
+
 .form-about-header h1 {
     font-family: 'Roboto Slab', serif;
     font-size: 4rem;
-    text-shadow: 1px 6px 14px #fff;
-    letter-spacing: 1px;
+    text-shadow: 1px 6px 14px black;
+    letter-spacing: 3px;
     margin-bottom: 2vh !important;
+    font-family: 'Bungee', cursive;
 }
 
 .form-about-section {
     grid-area: about;
     justify-self: center;
+    align-self: center;
+    font-size: 1.4rem;
+    color: white;
+    text-shadow: 2px 5px 3px black;
+    font-weight: bold;
 }
 
 .form-about-btn-container {

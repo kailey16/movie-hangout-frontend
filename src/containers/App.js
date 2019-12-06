@@ -53,16 +53,17 @@ class App extends Component {
 
   //getting the movie lists 
   getMovieLists = (user) => {
-    // debugger
+    let myAccount = user.user.id
+    
     fetch('http://localhost:3001/movielists', {
       headers: {
         "Authorization" : `Bearer ${localStorage.getItem('jwt')}`,
-        "User": user
+        "User": myAccount
       }
     })
     .then(resp => resp.json())
     .then(movielists => {
-      // debugger;
+      this.setState({myMovieList: movielists})
     })
   }
 
@@ -142,11 +143,11 @@ class App extends Component {
     })
     .then(resp => resp.json())
     .then(data => {
-      data.error ? ( 
+      data.message ? ( 
           Swal.fire({
             icon: 'error',
             title: 'Unable to Add',
-            text: `${data.error}`,
+            text: `${data.message}`,
           })
       ) :(
         Swal.fire({
