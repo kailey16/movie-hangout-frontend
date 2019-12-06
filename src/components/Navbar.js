@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom'
 import '../style/navbar.css'
 
 const Navbar = (props) => {  
+  
   return (
-
     <div id="navbar" className="ui top fixed menu">
       <Link className="item" to="/">
         <i className="video icon"></i>
