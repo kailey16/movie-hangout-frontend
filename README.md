@@ -2,6 +2,8 @@
 Movie Hangout is a single page web application where you can see details of movies and find the most popular and rated movies at the current moment. You can share your thoughts about the movie by leaving comments and save the movies that you like under your favorite list!
 
 ![demo image](src/Images/mvh1.png)
+![demo image](src/Images/mvh2.png)
+
 
 ### This is a repository for Movie Hangout's frontend:
  - designed with Javascript and React
