@@ -11,6 +11,7 @@ const Navbar = (props) => {
       </Link>
       <Link className="item" to="/movies">Movies</Link>
       <Link className="item" to="/profile">Profile</Link>
+      
       {!Array.isArray(props.currentUser) ? (
         // eslint-disable-next-line
         <a onClick={() => props.signOut()}
@@ -18,7 +19,6 @@ const Navbar = (props) => {
       ) : (
         <Link className="item" to="/login">Login</Link>
       )}
-      
     </div>
   )
 }
