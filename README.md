@@ -8,9 +8,9 @@ Movie Hangout is a single page web application where you can see details of movi
  - styled with Semantic UI framework and custom CSS
  - including multiple search and sort functions: search by keyword, sort by genre, name, and rating
  
-## To start the whole application, please clone the backend as well
+### To start the whole application, please clone the backend as well
   you can find it at: https://github.com/Nihaprezz/movie-hangout-backend
 
-## To start this frontend repository:
+### To start this frontend repository:
  1. open and run 'npm install'
  2. run 'npm start'
